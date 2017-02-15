@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <style>
+
+        ul li{
+            font-size: 1rem;
+        }
+        #abb{
+            font-size:16px;
+        }
+    </style>
+
+</head>
+
+<body>
+   <input id="a" type="text" />
+   <p id="b">300</p>
+   <script src="jquery1.11.1.min.js"></script>
+   <script>
+       (function(doc,win,fontSize) {
+           var docEl = doc.documentElement,
+                   resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                   recalc = function(){
+                       var clientWidth = docEl.clientWidth;
+                       if (!clientWidth){
+                           return;
+                       }
+                       docEl.style.fontSize = fontSize * (clientWidth / 320) + 'px';
+                   };
+           if(!doc.addEventListener){
+               return;
+           }
+           win.addEventListener(resizeEvt,recalc,false);
+           doc.addEventListener('DOMContentLoaded',recalc,false);
+       })(document,window,16);
+   </script>
+   <ul>
+       <li>哈萨克电话卡琅嬛福地是括号</li>
+       <li id="abb">哈萨克电话卡琅嬛福地是括号</li>
+       <li>哈萨克电话卡琅嬛福地是括号</li>
+       <li>哈萨克电话卡琅嬛福地是括号</li>
+   </ul>
+</body>
+</html>
